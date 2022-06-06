@@ -10,6 +10,7 @@ public class calculateGame : MonoBehaviour
     [SerializeField] int _width;
     [SerializeField] int _height;
     [SerializeField] Color[] colors;
+    [SerializeField] Material mat;
     Color _cachedWallColor;
     Color _cachedEmptyColor;
     [SerializeField, Range(0, 1000)] int _seed;
@@ -92,9 +93,10 @@ public class calculateGame : MonoBehaviour
         _renderTexture.enableRandomWrite = true;
         _renderTexture.Create();
 
-        GetComponent<MeshRenderer>().material.mainTexture = _renderTexture;
+        //GetComponent<MeshRenderer>().material.mainTexture = _renderTexture;
         //GetComponent<MeshRenderer>().material.SetTexture("_MetallicGlossMap", _renderTexture);
         //GetComponent<MeshRenderer>().material.SetTexture("_ParallaxMap", _renderTexture);
+        mat.mainTexture = _renderTexture;
 
 
         colorsFloat = new Vector4[colors.Length];
